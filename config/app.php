@@ -2,6 +2,9 @@
 
 return [
 
+    'slack_team' => env('SLACK_TEAM', 'cydline'),
+    'slack_key'  => env('SLACK_KEY'),
+    'background_image' => 'https://upload.wikimedia.org/wikipedia/en/d/d3/JackTriceStadium2015.jpeg',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
