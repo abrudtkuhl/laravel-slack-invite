@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/start', 'HomeController@start');
 
 Route::post('/team', 'TeamController@create');
+
+Route::post('/invite', 'InviteController@index');

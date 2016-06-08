@@ -8,7 +8,9 @@ use App\Http\Requests;
 
 class InviteController extends Controller
 {
-    $email = Request::get('email');
-    $this->dispatch(new SendInvite($email));
-    return view('success');
+    public function invite() {
+        $email = Request::get('email');
+        $this->dispatch(new SendInvite($email));
+        return view('success');
+    }
 }
