@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Setup Your First Slack Invite Page</h2>
-            <form  class="form" role="form" method="POST" action="{{ url('/login') }}">
+            <form  class="form" role="form" method="POST" action="{{ url('/team') }}">
                 {{ csrf_field() }}
 
                 <div class="form-group">

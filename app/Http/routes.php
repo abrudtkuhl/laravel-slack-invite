@@ -20,3 +20,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/start', 'HomeController@start');
+
+Route::post('/team', 'TeamController@create');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $teams = Team::where('user_id', $request->user()->id)->get();
+        return view('home', [
+            'teams' => $teams,
+        ]);
     }
 
     public function start()

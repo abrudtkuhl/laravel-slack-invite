@@ -17,6 +17,7 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
             $table->string('token');
             $table->string('name');
+            $table->integer('user_id')->index();
         });
     }
 
