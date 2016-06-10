@@ -8,5 +8,8 @@ use App\Http\Requests;
 
 class LandingController extends Controller
 {
-    //
+    public function view(Request $request)
+    {
+
+    }
 }

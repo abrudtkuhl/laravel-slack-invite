@@ -13,7 +13,7 @@ class AddSlugFieldToTeamsTable extends Migration
     public function up()
     {
         Schema::table('teams', function (Blueprint $table) {
-            $table->string('slug');
+            $table->string('slug')->unique()->default('slackvite');
         });
     }
 
