@@ -13,7 +13,8 @@ class TeamController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $request->user()->teams()->create([
             'name' => $request->name,
             'token'=> $request->token

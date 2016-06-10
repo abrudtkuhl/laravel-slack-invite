@@ -24,3 +24,11 @@ Route::get('/start', 'HomeController@start');
 Route::post('/team', 'TeamController@create');
 
 Route::post('/invite', 'InviteController@index');
+
+Route::group(array('domain' => '{account}.myapp.com'), function()
+{
+    Route::get('landing/{name}', function($account, $name)
+    {
+        //
+    });
+});
