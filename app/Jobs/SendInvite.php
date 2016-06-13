@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Team;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,19 +13,24 @@ class SendInvite extends Job implements ShouldQueue
     use InteractsWithQueue, SerializesModels;
 
     protected $email;
+    protected $slug;
+    protected $token;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($email)
+    public function __construct($email, $slug)
     {
         $this->email = $email;
+        $this->slug = $slug;
+        $this->token = $this->get_token($slug);
     }
 
-    protected function getEmail()
+    protected function get_token($slug)
     {
-        return $this->email;
+        $team = Team::where('slug', $slug)->first();
+        return $team->token;
     }
 
     /**
@@ -36,11 +42,11 @@ class SendInvite extends Job implements ShouldQueue
     {
         $fields = [
             'email'      => $this->email,
-            'token'      => config('slack_key'),
+            'token'      => $this->token,
             'set_active' => 'true'
         ];
 
-        $url        = 'https://' . config('slack_team') . '.slack.com/api/users.admin.invite';
+        $url        = 'https://' . $this->slug . '.slack.com/api/users.admin.invite';
 
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL, $url);
