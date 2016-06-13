@@ -4,8 +4,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h2>Setup Your First Slack Invite Page</h2>
+        <div class="col-md-6 col-md-offset-3">
+            @if ($has_teams)
+                <h1>Create New Slack Invite Page</h1>
+            @else
+                <h1>Setup Your First Slack Invite Page</h1>
+            @endif
+
             <form  class="form" role="form" method="POST" action="{{ url('/team') }}">
                 {{ csrf_field() }}
 
@@ -19,12 +24,11 @@
                     <span class="help-block"><a href="https://api.slack.com/docs/oauth-test-tokens" target="_blank">Generate Slack API Token</a>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Get Started</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 
 @endsection

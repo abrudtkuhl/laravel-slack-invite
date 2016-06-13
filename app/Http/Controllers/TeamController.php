@@ -18,5 +18,6 @@ class TeamController extends Controller
             'name' => $request->name,
             'token'=> $request->token
         ]);
+        return redirect('home')->with('status', 'Page Created');
     }
 }

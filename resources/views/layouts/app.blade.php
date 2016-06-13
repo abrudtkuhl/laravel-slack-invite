@@ -48,7 +48,10 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::check())
+                        <li><a href="{{ url('/home') }}">Teams</a></li>
+                        <li><a href="{{ url('/start') }}">Create</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

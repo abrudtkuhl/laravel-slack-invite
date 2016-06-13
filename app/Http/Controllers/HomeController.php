@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    protected $teams;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->middleware('auth');
+        $this->teams = Team::where('user_id', $request->user()->id)->get();
     }
 
     /**
@@ -25,7 +28,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $teams = Team::where('user_id', $request->user()->id)->get();
+        if( $this->teams->count() == 0 ) {
+            return redirect('start');
+
+        }
         return view('home', [
             'teams' => $teams,
         ]);
@@ -33,6 +39,6 @@ class HomeController extends Controller
 
     public function start()
     {
-        return view('start');
+        return view('start', [ 'has_teams' => $this->teams->count() ]);
     }
 }
