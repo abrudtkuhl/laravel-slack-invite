@@ -24,11 +24,10 @@ Route::get('/start', 'HomeController@start');
 Route::post('/team', 'TeamController@create');
 
 Route::post('/invite', 'InviteController@index');
+Route::get('/{slug}', 'LandingController@index');
 
-Route::group(array('domain' => '{account}.myapp.com'), function()
+/*Route::group(array('domain' => '{slug}.localhost:8000'), function()
 {
-    Route::get('landing/{name}', function($account, $name)
-    {
-        //
-    });
+    Route::get('landing/{slug}', 'LandingController@index');
 });
+*/
