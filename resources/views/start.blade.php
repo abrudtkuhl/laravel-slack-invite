@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label for="name" class="control-label">Slack Team Token</label>
                     <input type="text" name="token" class="form-control" />
-                    <span class="help-block">This can be found <a href="http://api.slack.com">in Slack</a>
+                    <span class="help-block"><a href="https://api.slack.com/docs/oauth-test-tokens" target="_blank">Generate Slack API Token</a>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Get Started</button>

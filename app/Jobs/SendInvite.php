@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Log;
 use App\Team;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
@@ -40,6 +41,8 @@ class SendInvite extends Job implements ShouldQueue
      */
     public function handle()
     {
+        Log::info('Sending Invite: '.$this->email.'::'.$this->slug);
+
         $fields = [
             'email'      => $this->email,
             'token'      => $this->token,
