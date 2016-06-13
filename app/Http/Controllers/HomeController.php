@@ -29,16 +29,16 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if( $this->teams->count() == 0 ) {
-            return redirect('start');
+            return redirect('create');
 
         }
         return view('home', [
-            'teams' => $teams,
+            'teams' => $this->teams,
         ]);
     }
 
-    public function start()
+    public function create()
     {
-        return view('start', [ 'has_teams' => $this->teams->count() ]);
+        return view('create', [ 'has_teams' => $this->teams->count() ]);
     }
 }

@@ -50,7 +50,7 @@
                 <ul class="nav navbar-nav">
                     @if (Auth::check())
                         <li><a href="{{ url('/home') }}">Teams</a></li>
-                        <li><a href="{{ url('/start') }}">Create</a></li>
+                        <li><a href="{{ url('/create') }}">Create</a></li>
                     @endif
                 </ul>
 

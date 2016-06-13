@@ -18,7 +18,7 @@
                             <label>Team:</label> {{ $team->name }}<br />
                             <label>Token:</label> {{ $team->token }}<br />
                             <label>Slug:</label> {{ $team->slug }}<br />
-                            <a href="/team/edit" class="btn btn-primary">Edit Team</a> <a href="{{ $team->slug }}.localhost:8000" class="btn btn-primary">View Site</a>
+                            <!--<a href="/team/edit" class="btn btn-primary">Edit Team</a> --><a href="/{{$team->slug}}" class="btn btn-primary" target="_blank">View</a>
                         </div>
                     @endforeach
                 </div>
